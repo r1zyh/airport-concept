@@ -1,8 +1,24 @@
-// Цвета Домодедово (временно)
-$primary-light: #ffffff;
-$primary-dark: #1a1a1a;
-$text-light: #000000;
-$text-dark: #ffffff;
+// Цвета для светлой темы
+$background-color-light1: #FFFFFF;
+$background-color-light2: #F8F9FA;
+$text-color-light1: #1A1A1A;
+$text-color-light2: #2C3E50;
+$primary-color-light: #0066CC;
+$accent-color-light: #FF6B35;
+$success-color-light: #28A745;
+$warning-color-light: #FFC107;
+$error-color-light: #DC3545;
+
+// Цвета для темной темы
+$background-color-dark1: #1A1A1A;
+$background-color-dark2: #121212;
+$text-color-dark1: #E0E0E0;
+$text-color-dark2: #FFFFFF;
+$primary-color-dark: #4A9EFF;
+$accent-color-dark: #FF8C5A;
+$success-color-dark: #4CAF50;
+$warning-color-dark: #FFB74D;
+$error-color-dark: #EF5350;
 
 // Брейкпоинты
 $mobile: 576px;
