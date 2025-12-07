@@ -1,4 +1,4 @@
-import { Container } from "../../shared/PageContainer";
+import { Container } from "../../shared/page-container";
 
 export function MainPage() {
   const currentTheme = document.documentElement.getAttribute("data-theme");

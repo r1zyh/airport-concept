@@ -1,7 +1,7 @@
-import styles from "./PageContainer.module.scss";
+import styles from "./page-container.module.scss";
 import clsx from "clsx";
 
-type ContainerProps = {
+interface ContainerProps {
   children: React.ReactNode;
   size?: "default" | "narrow" | "wide" | "fluid";
   className?: string;
