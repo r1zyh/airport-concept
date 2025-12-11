@@ -36,6 +36,7 @@ export default tseslint.config(
         { allowConstantExport: true },
       ],
       'no-undef': 'off',
+      '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
     },
   },
 )
