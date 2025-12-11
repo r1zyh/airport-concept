@@ -1,51 +1,80 @@
-import React from "react";
-import { Container } from "../../../shared/page-container/ui/page-container";
-import { Link } from "@tanstack/react-router";
 import styles from "./main-page.module.scss";
+import type { ReactNode } from "react";
+import { Link } from "@tanstack/react-router";
+import FlightLandIcon from "@mui/icons-material/FlightLand";
+import FlightTakeoffIcon from "@mui/icons-material/FlightTakeoff";
+import DirectionsBusIcon from "@mui/icons-material/DirectionsBus";
+import StoreIcon from "@mui/icons-material/Store";
+import MenuIcon from "@mui/icons-material/Menu";
+import { Container } from "../../../shared/page-container/ui/page-container";
+import { ButtonPrimary } from "../../../shared/button-primary/ui/button-primary";
+import ButtonBase from "@mui/material/ButtonBase";
 
-export function MainPage(): React.ReactNode {
+/** Главная страница приложения */
+export function MainPage(): ReactNode {
   return (
-    <React.Fragment>
-      <header className={styles.header}>
-        <img
-          className="header__logo"
-          src="/src/assets/DME.png"
-          width={64}
-          height={64}
-          alt="DME logo"
-        />
-        <nav className={styles.navigation}>
-          <ul className={styles.navigation__list}>
-            <li className="navigation__item">
-              <Link to="/">МОЕ ПУТЕШЕСТВИЕ</Link>
-            </li>
-            <li className="navigation__item">
-              <Link to="/departure">ВЫЛЕТ</Link>
-            </li>
-            <li className="navigation__item">
-              <Link to="/arrival">ПРИЛЕТ</Link>
-            </li>
-            <li className="navigation__item">git 
-              <Link to="/transfer">ПЕРЕСАДКА</Link>
-            </li>
-            <li className="navigation__item">
-              <Link to="/transport">ТРАНСПОРТ</Link>
-            </li>
-            <li className="navigation__item">
-              <Link to="/parking">ПАРКОВКА</Link>
-            </li>
-            <li className="navigation__item">
-              <Link to="/airport-guide">ГИД ПО АЭРОПОРТУ</Link>
-            </li>
-            <li className="navigation__item">
-              <Link to="/venues">МАГАЗИНЫ И КАФЕ</Link>
-            </li>
-          </ul>
-        </nav>
+    <Container size="narrow">
+      <header className={styles.pageHeader}>
+        <h1 className={styles.pageTitle}>ДОМОДЕДОВО</h1>
+        <ButtonBase title="Кнопка меню">
+          <MenuIcon sx={{ cursor: "pointer" }} />
+        </ButtonBase>
       </header>
-      <Container>
-        <h1>Hello, i am Main Page!!!</h1>
-      </Container>
-    </React.Fragment>
+
+      <section className={styles.searchSection}>
+        <label htmlFor="search" className="visually-hidden">
+          Поиск по номеру рейса или городу
+        </label>
+        <input
+          id="search"
+          type="text"
+          name="search"
+          className={styles.searchInput}
+          placeholder="Flight number / City"
+        />
+
+        <ButtonPrimary text="Find" />
+      </section>
+
+      <section className={styles.navigationGrid}>
+        <Link to="/arrival" className={styles.navigationCard}>
+          <FlightLandIcon sx={{ color: "inherit" }} />
+          <h3 className={styles.navigationCardTitle}>Прилет</h3>
+        </Link>
+
+        <Link to="/departure" className={styles.navigationCard}>
+          <FlightTakeoffIcon />
+          <h3 className={styles.navigationCardTitle}>Вылет</h3>
+        </Link>
+
+        <Link to="/transport" className={styles.navigationCard}>
+          <DirectionsBusIcon />
+          <h3 className={styles.navigationCardTitle}>Транспорт</h3>
+        </Link>
+
+        <Link to="/venues" className={styles.navigationCard}>
+          <StoreIcon />
+          <h3 className={styles.navigationCardTitle}>Магазины</h3>
+        </Link>
+      </section>
+
+      <footer className={styles.pageFooter}>
+        <div className={styles.footerColumn}>
+          <span className={styles.footerLabel}>Контакты</span>
+
+          <p>+7 495 933-66-66</p>
+        </div>
+        <div className={styles.footerColumn}>
+          <span className={styles.footerLabel}>Часы работы</span>
+
+          <p>05:00 – 00:30</p>
+        </div>
+        <div className={styles.footerColumn}>
+          <span className={styles.footerLabel}>Соцсети</span>
+
+          <p>Instagram · YouTube</p>
+        </div>
+      </footer>
+    </Container>
   );
 }

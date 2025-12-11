@@ -1,15 +1,21 @@
-import * as React from 'react'
+import type { ReactNode } from 'react'
 import { Outlet, createRootRoute } from '@tanstack/react-router'
+import { ThemeProvider, createTheme } from '@mui/material/styles'
+import CssBaseline from '@mui/material/CssBaseline'
 
+const THEME = createTheme()
+
+/** Корневой маршрут приложения */
 export const Route = createRootRoute({
   component: RootComponent,
 })
 
-function RootComponent() {
+/** Корневой компонент приложения, оборачивает роуты в тему Material-UI */
+function RootComponent(): ReactNode {
   return (
-    <React.Fragment>
-      <div>Hello "__root"!</div>
+    <ThemeProvider theme={THEME}>
+      <CssBaseline />
       <Outlet />
-    </React.Fragment>
+    </ThemeProvider>
   )
 }

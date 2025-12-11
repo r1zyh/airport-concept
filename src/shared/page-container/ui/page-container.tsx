@@ -1,11 +1,11 @@
 import styles from "./page-container.module.scss";
 import clsx from "clsx";
 
-interface ContainerProps {
+type ContainerProps = {
   children: React.ReactNode;
   size?: "default" | "narrow" | "wide" | "fluid";
   className?: string;
-}
+};
 
 export function Container({
   children,

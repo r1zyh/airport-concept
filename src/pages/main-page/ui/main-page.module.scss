@@ -1,20 +1,105 @@
-.header {
-    width: 100%;
-    height: 80px;
-    background-color: #{$primary-color-light};
+.pageHeader {
+  height: 64px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--mobile-margin);
+  background: white;
+  box-shadow: var(--shadow-header);
+  position: sticky;
+  top: 0;
+  z-index: 20;
 }
 
-.navigation {
-
+.pageTitle {
+  color: var(--color-primary);
 }
 
-.navigation__list {
-    display: flex;
-    width: 100%;
-    max-width: 1300px;
-    margin-left: auto;
-    margin-right: auto;
-    justify-content: space-between;
-    padding-left: 20px;
-    padding-right: 20px;
+.searchSection {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.searchInput {
+  width: 100%;
+  height: 48px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  background-color: var(--color-input-background);
+  padding: 0 16px;
+  font-size: var(--font-body-size);
+  margin-bottom: 12px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+  transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.searchInput:hover:not(:focus) {
+  border-color: rgba(0, 87, 183, 0.2);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.searchInput:focus {
+  border-color: var(--color-primary);
+  background-color: var(--color-cards);
+  box-shadow: 0 0 0 3px rgba(0, 87, 183, 0.1);
+}
+
+.searchInput::placeholder {
+  color: #595c61;
+}
+
+.navigationGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px;
+}
+
+.navigationCard {
+  color: var(--color-primary);
+  background: var(--color-card);
+  padding: 15px;
+  box-shadow: var(--card-shadow);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 130px;
+  justify-content: center;
+}
+
+.navigationCard svg {
+  width: 32px;
+  height: 32px;
+  margin-bottom: 12px;
+}
+
+.navigationCardTitle {
+  font-size: var(--font-size-h3);
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.pageFooter {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  font-size: var(--font-size-body);
+  line-height: var(--font-size-body-line-height);
+  color: var(--color-text-secondary);
+  display: flex;
+  gap: 16px;
+}
+
+.footerColumn {
+  flex: 1;
+}
+
+.footerLabel {
+  font-weight: 500;
+  color: var(--color-text-main);
+  font-size: var(--font-size-body);
+  line-height: var(--font-size-body-line-height);
 }

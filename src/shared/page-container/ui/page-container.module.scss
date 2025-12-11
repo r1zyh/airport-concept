@@ -1,27 +1,30 @@
-// Контейнеры
-$container-max-width: 1280px;
-$container-narrow: 960px;
-$container-wide: 1440px;
-$container-padding: 24px;
-
 .container {
-    max-width: #{$container-max-width};
-    margin: 0 auto;
-    padding: 0 #{$container-padding};
-  
-    &.narrow {
-      max-width: #{$container-narrow};
-    }
-  
-    &.wide {
-      max-width: #{$container-wide};
-    }
-  
-    &.fluid {
-      max-width: 100%;
-    }
-  
-    @media (max-width: 768px) {
-      padding: 0 #{$container-padding} / 2;
-    }
+  width: 100%;
+  max-width: var(--grid-desktop-width, 1440px);
+  margin: 0 auto;
+  padding: 0 var(--grid-desktop-margin, 80px);
+
+  &.narrow {
+    max-width: var(--grid-tablet-width, 1024px);
+    padding: 0 var(--grid-tablet-margin, 48px);
   }
+
+  &.wide {
+    max-width: var(--grid-desktop-width, 1440px);
+    padding: 0 var(--grid-desktop-margin, 80px);
+  }
+
+  &.fluid {
+    max-width: 100%;
+    padding: 0 var(--grid-mobile-margin, 16px);
+  }
+
+  @media (max-width: 1024px) {
+    padding: 0 var(--grid-tablet-margin, 48px);
+  }
+
+  @media (max-width: 768px) {
+    max-width: var(--grid-mobile-width, 390px);
+    padding: 0 var(--grid-mobile-margin, 16px);
+  }
+}
